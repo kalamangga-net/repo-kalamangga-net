@@ -6,7 +6,7 @@ REPO_URL="rsync://kambing.ui.ac.id/CPAN/"
 REPO_TMP="$REPO_DIR/tmp"
 
 mkdir -p $REPO_TMP
-PIDFILE="$REPO_DIR/tmp/$REPO_APP.pid"
+PIDFILE="$REPO_TMP/$REPO_APP.pid"
 
 if [ -e "${PIDFILE}" ] && (ps -u $(whoami) -opid= |
                            grep -P "^\s*$(cat ${PIDFILE})$" &> /dev/null); then
