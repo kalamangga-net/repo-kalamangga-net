@@ -18,12 +18,8 @@ if [ -e "${PIDFILE}" ] && (ps -u $(whoami) -opid= |
 fi
 
 # Sinkronisasi, simpan dalam log
-rsync -rtlzv --delete $REPO_URL $REPO_DIR/$REPO_APP/ > $REPO_TMP/$REPO_APP.log &
+rsync -rtlzv --delete $REPO_URL $REPO_DIR/$REPO_APP/ > $REPO_TMP/$REPO_APP.log; bash ../chmod.sh $REPO_DIR/$REPO_APP/ &
 
 # Isi pid
 echo $! > "${PIDFILE}"
 chmod 644 "${PIDFILE}"
-
-# Ubah hak akses
-find $REPO_DIR/$REPO_APP/ -type d -exec chmod 755 {} \;
-find $REPO_DIR/$REPO_APP/ -type f -exec chmod 644 {} \;
