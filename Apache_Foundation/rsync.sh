@@ -3,7 +3,7 @@
 # Konfigurasi
 REPO_DIR="/local/mirror"
 REPO_APP="Apache"
-REPO_URL="rsync.apache.org::apache-dist-most"
+REPO_URL="rsync.apache.org::apache-dist"
 REPO_TMP="$REPO_DIR/tmp"
 
 # Pid
